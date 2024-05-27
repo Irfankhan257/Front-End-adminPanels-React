@@ -16,10 +16,9 @@ const App = () => {
       <Route path="investor/*" element={<Investorlayout />} />
       <Route path="innovator/*" element={<Innovatorlayout />} />
       <Route path="rtl/*" element={<RtlLayout />} />
-      {/* <Route path="/" element={<Navigate to="/admin" replace />} /> */}
+      <Route path="/" element={<Navigate to="/homepage" replace />} />
       <Route path="/homepage/*" element={<InvesTechWebsite />} />
       <Route path="/investorsignin/*" element={<InvestorAuthLayout />} />
-
     </Routes>
   );
 };
