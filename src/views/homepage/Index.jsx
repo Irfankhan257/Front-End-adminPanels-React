@@ -3,6 +3,7 @@ import "./Investech.css";
 import logo from "../../assets/img/logo/logo-removebg-previewR.png";
 import investor from "../../assets/img/logo/investorr.png";
 import innovator from "../../assets/img/logo/innovator.png";
+import { Link } from "react-router-dom";
 
 const InvesTechWebsite = () => {
   const [isScrolledToSection, setIsScrolledToSection] = useState(false);
@@ -43,7 +44,10 @@ const InvesTechWebsite = () => {
               Fourth Link
             </a>
           </nav>
-          <button className="mt-4 inline-flex items-center rounded border-0 bg-blue-600 py-1 px-3 text-base text-gray-200 hover:bg-blue-400 focus:outline-none md:mt-0">
+          <a
+            className="mt-4 inline-flex items-center rounded border-0 bg-blue-600 py-1 px-3 text-base text-gray-200 hover:bg-blue-400 focus:outline-none md:mt-0"
+            href="/investorsignin"
+          >
             Login
             <svg
               fill="none"
@@ -56,7 +60,7 @@ const InvesTechWebsite = () => {
             >
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
-          </button>
+          </a>
         </div>
       </header>
 

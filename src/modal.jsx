@@ -1,11 +1,14 @@
 // UserInfoModal.js
 import Card from "components/card";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
+import { Rating } from "@mui/material";
+import banner from "assets/img/profile/banner.png";
+import { FeedController } from "controllers/feedController";
 
 Modal.setAppElement("#root"); // Important for accessibility
 
-const UserInfoModal = ({ isOpen, onRequestClose, user }) => {
+const UserInfoModal = ({ isOpen, onRequestClose, user, rating }) => {
   const customStyles = {
     content: {
       top: "50%",
@@ -21,6 +24,24 @@ const UserInfoModal = ({ isOpen, onRequestClose, user }) => {
       overflow: "hidden", // To match the card padding
     },
   };
+
+  const [postRating, setPostRating] = useState({
+    id: user.id,
+    role: user.role,
+    rating: "5",
+  });
+
+  const handleRatingChange = (event, newValue) => {
+    setPostRating((prevState) => ({
+      ...prevState,
+      rating: newValue.toString(),
+    }));
+  };
+
+  useEffect(() => {
+    console.log(postRating);
+    FeedController.PostUserRating(postRating);
+  }, [postRating]);
 
   return (
     <Modal
@@ -77,6 +98,25 @@ const UserInfoModal = ({ isOpen, onRequestClose, user }) => {
             <p className="text-base font-medium text-navy-700 dark:text-white">
               {user.country}
             </p>
+          </div>
+        </div>
+        <div className="rating-section mt-8 items-center px-2">
+          <h1 className="text-4xl font-bold text-navy-700 dark:text-white">
+            Rating
+          </h1>
+          <div className="flex items-center">
+            <Rating
+              className="text-xl font-bold text-navy-700 dark:text-white"
+              defaultValue={rating.overAllRating}
+              onChange={handleRatingChange}
+              precision={0.5}
+              sx={{ fontSize: 48 }}
+            />
+            <h2 className="ml-5 text-5xl font-bold text-navy-700 dark:text-white">
+              {rating.overAllRating !== undefined
+                ? rating.overAllRating.toFixed(1)
+                : "N/A"}
+            </h2>
           </div>
         </div>
       </Card>

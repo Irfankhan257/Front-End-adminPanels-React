@@ -2,12 +2,27 @@
 import React, { useState } from "react";
 import Card from "components/card";
 import UserInfoModal from "modal";
+import { FeedController } from "controllers/feedController";
 
 export const Feedcards = ({ idea }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [userRating,setUserRating] = useState({})
 
-  const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
+
+  const fetchRating = async () => {
+    const userRating = {
+      id: idea.innovator.id,
+      role: idea.innovator.role,
+    };
+    const fetchuserRating = await FeedController.FetchUserRating(userRating);
+    setUserRating(fetchuserRating);
+  };
+
+  const handleClick = () => {
+    setModalIsOpen(true);
+    fetchRating();
+  };
 
   return (
     <>
@@ -22,7 +37,7 @@ export const Feedcards = ({ idea }) => {
           </div>
           <div className="rating ml-auto mt-auto mb-2">
             <h6>{idea.innovator.name}</h6>
-            <button onClick={openModal} className="focus:outline-none">
+            <button onClick={handleClick} className="focus:outline-none">
               <svg
                 className="peer cursor-pointer text-gray-600 duration-100 hover:text-yellow-400 peer-hover:text-yellow-400"
                 width="23"
@@ -47,6 +62,7 @@ export const Feedcards = ({ idea }) => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         user={idea.innovator}
+        rating={userRating}
       />
     </>
   );

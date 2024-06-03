@@ -40,4 +40,14 @@ export const callingapiservice = {
     const apiName = "ideas/getallideas";
     return apiService(apiName, "GET");
   },
+
+  FetchUserRating: async (payload) => {
+    const apiName = "rating/fetchrating";
+    return apiService(apiName, payload, "POST");
+  },
+
+  PostUserRating: async (payload) => {
+    const apiName = "rating/userrating";
+    return apiService(apiName, payload, "POST");
+  },
 };
