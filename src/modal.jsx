@@ -17,29 +17,30 @@ const UserInfoModal = ({ isOpen, onRequestClose, user, rating }) => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      width: "50%", // Adjust as necessary
-      height: "auto", // Adjust as necessary
+      width: "50%",
+      height: "auto", 
       padding: "0",
-      borderRadius: "20px", // Add rounded corners
-      overflow: "hidden", // To match the card padding
+      borderRadius: "20px", 
+      overflow: "hidden", 
     },
   };
+
+  console.log("rating", rating);
 
   const [postRating, setPostRating] = useState({
     id: user.id,
     role: user.role,
-    rating: "5",
+    rating: 4,
   });
 
   const handleRatingChange = (event, newValue) => {
     setPostRating((prevState) => ({
       ...prevState,
-      rating: newValue.toString(),
+      rating: newValue,
     }));
   };
 
   useEffect(() => {
-    console.log(postRating);
     FeedController.PostUserRating(postRating);
   }, [postRating]);
 
@@ -106,16 +107,20 @@ const UserInfoModal = ({ isOpen, onRequestClose, user, rating }) => {
           </h1>
           <div className="flex items-center">
             <Rating
-              className="text-xl font-bold text-navy-700 dark:text-white"
-              defaultValue={rating.overAllRating}
+            // className="text-xl font-bold text-navy-700 dark:text-white"
+              defaultValue={
+                rating.overAllRating !== undefined
+                  ? rating.overAllRating.toFixed(2)
+                  : postRating.rating
+              }
               onChange={handleRatingChange}
               precision={0.5}
               sx={{ fontSize: 48 }}
             />
             <h2 className="ml-5 text-5xl font-bold text-navy-700 dark:text-white">
               {rating.overAllRating !== undefined
-                ? rating.overAllRating.toFixed(1)
-                : "N/A"}
+                ? rating.overAllRating.toFixed(2)
+                : postRating.rating}
             </h2>
           </div>
         </div>

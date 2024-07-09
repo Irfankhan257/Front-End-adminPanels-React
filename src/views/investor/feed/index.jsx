@@ -9,13 +9,11 @@ const Feed = () => {
   useEffect(() => {
     const fetchIdeas = async () => {
       const data = await FeedController.FetchIdeas();
-      console.log("data", data);
       setIdeas(data);
     };
 
     fetchIdeas();
   }, []);
-  console.log("ideas", ideas);
   return (
     <div className="col-span-1 my-7 h-fit w-full xl:col-span-1 2xl:col-span-2">
       <Banner1 />
@@ -23,7 +21,7 @@ const Feed = () => {
         {ideas && ideas.length > 0 ? (
           ideas.map((idea, index) => (
             <div className="col-span-1 my-5 h-fit w-full xl:col-span-1 2xl:col-span-2">
-              <Feedcards key={idea.id || index} idea={idea} />
+              <Feedcards key={idea.id} idea={idea} />
             </div>
           ))
         ) : (
