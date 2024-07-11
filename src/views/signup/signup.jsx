@@ -2,7 +2,8 @@ import InputField from "components/fields/InputField";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LogInController } from "controllers/logInController";
-import useAuth from "Hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { setError } from "features/auth/authSlice";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -12,8 +13,10 @@ export default function SignUp() {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { error } = useSelector((state) => state.auth);
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -24,7 +27,7 @@ export default function SignUp() {
   const handlePhoneChange = (e) => setPhone(e.target.value);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const payload = {
       email: email,
       password: password,
@@ -34,7 +37,19 @@ export default function SignUp() {
       phone: phone,
       role: role,
     };
-    console.log(payload);
+
+    try {
+      const signUpData = await LogInController.SignUp(payload);
+      console.log("signUpData", signUpData);
+      if (signUpData) {
+        navigate("/investor");
+      } else {
+        dispatch(setError("credentials Failed. Please try again."));
+      }
+    } catch (error) {
+      console.error("Sign Up failed:", error.message);
+      dispatch(setError("Sign Up failed. Please try again later."));
+    }
   };
 
   return (

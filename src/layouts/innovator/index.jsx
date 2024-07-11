@@ -56,6 +56,9 @@ export default function Admin(props) {
       }
     });
   };
+  // const userData= localStorage.getItem("User")
+
+  // console.log("userData", userData);
 
   document.documentElement.dir = "ltr";
   return (
@@ -85,7 +88,6 @@ export default function Admin(props) {
                   element={<Navigate to="/innovator/feed" replace />}
                 />
               </Routes>
-              {/* <Feed /> */}
             </div>
             <div className="p-3">
               <Footer />
