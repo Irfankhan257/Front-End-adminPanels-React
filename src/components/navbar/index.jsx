@@ -2,19 +2,22 @@ import React from "react";
 import Dropdown from "components/dropdown";
 import { FiAlignJustify } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import navbarimage from "assets/img/layout/Navbar.png";
-import { BsArrowBarUp } from "react-icons/bs";
-import { FiSearch } from "react-icons/fi";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
-import {
-  IoMdNotificationsOutline,
-  IoMdInformationCircleOutline,
-} from "react-icons/io";
 import avatar from "assets/img/avatars/avatar4.png";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAuth } from "features/auth/authSlice";
+import { signOut } from "features/auth/authSlice";
 
 const Navbar = (props) => {
   const { onOpenSidenav, brandText } = props;
+  const dispatch = useDispatch();
+
   const [darkmode, setDarkmode] = React.useState(false);
+  const { user, isAuthenticated } = useSelector(selectAuth);
+
+  const handleSignOut = () => {
+    dispatch(signOut());
+  };
 
   return (
     <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-between rounded-xl bg-white/10 p-2 backdrop-blur-xl dark:bg-[#0b14374d]">
@@ -50,7 +53,7 @@ const Navbar = (props) => {
       <div className="relative mt-[3px] flex h-[61px] w-[355px] flex-grow items-center justify-around gap-2 rounded-full bg-white px-2 py-2 shadow-xl shadow-shadow-500 dark:!bg-navy-800 dark:shadow-none md:w-[365px] md:flex-grow-0 md:gap-1 xl:w-[365px] xl:gap-2">
         <div className="flex h-full items-center rounded-full bg-lightPrimary text-navy-700 dark:bg-navy-900 dark:text-white xl:w-[225px]">
           <p className="pl-3 pr-2 text-sm font-bold text-navy-700 dark:text-white">
-            👋 User Name
+            👋 {user.fullName}
           </p>
         </div>
         <span
@@ -91,7 +94,7 @@ const Navbar = (props) => {
               <div className="p-4">
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-bold text-navy-700 dark:text-white">
-                    👋 Hey, Adela
+                    👋 Hey, {user.fullName}
                   </p>{" "}
                 </div>
               </div>
@@ -107,9 +110,7 @@ const Navbar = (props) => {
                 <a
                   href="/innovatorsignin"
                   className="mt-3 text-sm font-medium text-red-500 transition duration-150 ease-out hover:text-red-500 hover:ease-in"
-                  onClick={() => {
-                    localStorage.clear();
-                  }}
+                  onClick={handleSignOut}
                 >
                   Log Out
                 </a>

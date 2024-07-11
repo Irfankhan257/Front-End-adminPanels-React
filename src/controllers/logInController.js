@@ -18,4 +18,12 @@ export const LogInController = {
       console.error("Error fetching ideas:", error);
     }
   },
+  SignUp: async (payload) => {
+    try {
+      const data = await callingapiservice.SignUp(payload);
+      return data.data.message;
+    } catch (error) {
+      console.error("Error fetching ideas:", error);
+    }
+  },
 };

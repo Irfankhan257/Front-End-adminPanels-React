@@ -9,6 +9,7 @@ export const Feedcards = ({ idea }) => {
   const [userRating,setUserRating] = useState({})
 
   const closeModal = () => setModalIsOpen(false);
+  
 
   const fetchRating = async () => {
     const userRating = {

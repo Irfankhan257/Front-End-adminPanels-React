@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import InputField from "components/fields/InputField";
 import { LogInController } from "controllers/logInController";
 import { Navigate, useNavigate } from "react-router-dom";
-import useAuth from "Hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { signInSuccess } from "features/auth/authSlice";
+import { setError } from "features/auth/authSlice";
 
 export default function InnovatorSignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  const { signIn } = useAuth();
+  const { error } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const payload = {
       email: email,
       password: password,
@@ -22,15 +25,16 @@ export default function InnovatorSignIn() {
 
     try {
       const innovator = await LogInController.InnovatorLogIn(payload);
-      if (innovator.role == "innovator") {
-        signIn(innovator);
+      console.log("innovator", innovator);
+      if (innovator) {
+        dispatch(signInSuccess(innovator));
         navigate("/innovator");
       } else {
-        setError("Invalid credentials. Please try again.");
+        dispatch(setError("Invalid credentials. Please try again."));
       }
     } catch (error) {
       console.error("Login failed:", error.message);
-      setError("Login failed. Please try again later.");
+      dispatch(setError("Login failed. Please try again later."));
     }
   };
 

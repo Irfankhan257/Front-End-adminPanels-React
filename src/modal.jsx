@@ -18,14 +18,14 @@ const UserInfoModal = ({ isOpen, onRequestClose, user, rating }) => {
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       width: "50%",
-      height: "auto", 
+      height: "auto",
       padding: "0",
-      borderRadius: "20px", 
-      overflow: "hidden", 
+      borderRadius: "20px",
+      overflow: "hidden",
     },
   };
 
-  console.log("rating", rating);
+  console.log("rating", user);
 
   const [postRating, setPostRating] = useState({
     id: user.id,
@@ -39,10 +39,11 @@ const UserInfoModal = ({ isOpen, onRequestClose, user, rating }) => {
       rating: newValue,
     }));
   };
+  const postRatingData = async () => {
+    await FeedController.PostUserRating(postRating);
+  };
 
-  useEffect(() => {
-    FeedController.PostUserRating(postRating);
-  }, [postRating]);
+  useEffect(() => {}, [postRating]);
 
   return (
     <Modal
@@ -107,13 +108,14 @@ const UserInfoModal = ({ isOpen, onRequestClose, user, rating }) => {
           </h1>
           <div className="flex items-center">
             <Rating
-            // className="text-xl font-bold text-navy-700 dark:text-white"
+              // className="text-xl font-bold text-navy-700 dark:text-white"
               defaultValue={
                 rating.overAllRating !== undefined
                   ? rating.overAllRating.toFixed(2)
                   : postRating.rating
               }
               onChange={handleRatingChange}
+              onClick={postRatingData}
               precision={0.5}
               sx={{ fontSize: 48 }}
             />

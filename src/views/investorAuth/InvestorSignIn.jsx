@@ -3,36 +3,42 @@ import InputField from "components/fields/InputField";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LogInController } from "controllers/logInController";
-import useAuth from "Hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { signInSuccess } from "features/auth/authSlice";
+import { setError } from "features/auth/authSlice";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  const { signIn } = useAuth();
+  const { error } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
     const payload = {
       email: email,
       password: password,
     };
 
+    console.log(payload);
+
     try {
       const investor = await LogInController.InvestorLogIn(payload);
-      console.log(investor.role);
-      if (investor.role == "investor") {
-        signIn(investor);
+      console.log("investor", investor);
+      if (investor) {
+        dispatch(signInSuccess(investor));
         navigate("/investor");
       } else {
-        setError("Invalid credentials. Please try again.");
+        dispatch(setError("Invalid credentials. Please try again."));
       }
     } catch (error) {
       console.error("Login failed:", error.message);
-      setError("Login failed. Please try again later.");
+      dispatch(setError("Login failed. Please try again later."));
     }
   };
   return (
@@ -100,7 +106,7 @@ export default function SignIn() {
             href="innovatorsignin"
             className="ml-1 text-sm font-medium text-brand-500 hover:text-brand-600 dark:text-white"
           >
-            Click here for Investor Log In
+            Click here for Innovator Log In
           </a>
         </div>
       </div>
