@@ -92,7 +92,7 @@ export default function SignIn() {
             Not registered yet?
           </span>
           <a
-            href=""
+            href="signup"
             className="ml-1 text-sm font-medium text-brand-500 hover:text-brand-600 dark:text-white"
           >
             Create an account

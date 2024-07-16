@@ -50,4 +50,8 @@ export const callingapiservice = {
     const apiName = "rating/userrating";
     return apiService(apiName, payload, "POST");
   },
+  GetTags: async () => {
+    const apiName = "tags/fetchtag";
+    return apiService(apiName, "GET");
+  },
 };

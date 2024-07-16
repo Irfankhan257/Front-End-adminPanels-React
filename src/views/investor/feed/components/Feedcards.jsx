@@ -1,28 +1,36 @@
 // Feedcards.js
 import React, { useState } from "react";
-import Card from "components/card"
+import Card from "components/card";
 import UserInfoModal from "modal";
 import { FeedController } from "controllers/feedController";
 
 export const Feedcards = ({ idea }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [userRating, setUserRating] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const closeModal = () => setModalIsOpen(false);
 
-    const fetchRating = async () => {
-      const userRating = {
-        id: idea.innovator.id,
-        role: idea.innovator.role,
-      };
-      const fetchuserRating = await FeedController.FetchUserRating(userRating);
+  const fetchRating = async () => {
+    const payload = {
+      id: idea.innovator.id,
+      role: idea.innovator.role,
+    };
+    setLoading(true); // Set loading to true when fetching starts
+    try {
+      const fetchuserRating = await FeedController.FetchUserRating(payload);
       setUserRating(fetchuserRating);
-    };
+    } catch (error) {
+      console.error("Failed to fetch user rating:", error);
+    } finally {
+      setLoading(false); // Set loading to false when fetching ends
+    }
+  };
 
-    const handleClick = () => {
-      setModalIsOpen(true);
-      fetchRating();
-    };
+  const handleClick = () => {
+    setModalIsOpen(true);
+    fetchRating();
+  };
 
   return (
     <>
@@ -63,6 +71,7 @@ export const Feedcards = ({ idea }) => {
         onRequestClose={closeModal}
         user={idea.innovator}
         rating={userRating}
+        loading={loading}
       />
     </>
   );

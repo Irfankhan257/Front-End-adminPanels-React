@@ -4,16 +4,22 @@ import { Feedcards } from "./components/Feedcards";
 import { FeedController } from "controllers/feedController";
 import { useSelector } from "react-redux";
 import { selectAuth } from "features/auth/authSlice";
+import Progress from "components/progress";
+import { CircularProgress } from "@mui/material";
 
 const Feed = () => {
   const [ideas, setIdeas] = useState([]);
-    const { user, isAuthenticated } = useSelector(selectAuth);
+  const [loading, setLoading] = useState(true);
 
+  const { user, isAuthenticated } = useSelector(selectAuth);
 
   useEffect(() => {
     const fetchIdeas = async () => {
       const allIdeas = await FeedController.FetchIdeas();
-      setIdeas(allIdeas);
+      if (allIdeas) {
+        setLoading(false);
+        setIdeas(allIdeas);
+      }
     };
 
     fetchIdeas();
@@ -32,7 +38,9 @@ const Feed = () => {
             </div>
           ))
         ) : (
-          <div>Loading...</div>
+          <div className="flex h-screen items-start justify-center pt-20">
+            <CircularProgress />
+          </div>
         )}
       </div>
     </div>

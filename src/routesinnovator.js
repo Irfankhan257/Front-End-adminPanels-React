@@ -21,6 +21,7 @@ import {
   MdPerson,
   MdLock,
 } from "react-icons/md";
+import PitchingIdeas from "views/innovator/pitching";
 
 const routesinnovator = [
   {
@@ -28,7 +29,7 @@ const routesinnovator = [
     layout: "/innovator",
     path: "feed",
     icon: <MdHome className="h-6 w-6" />,
-    component: <FeedTable/>,
+    component: <FeedTable />,
   },
   {
     name: "Profile",
@@ -37,6 +38,12 @@ const routesinnovator = [
     icon: <MdPerson className="h-6 w-6" />,
     component: <Profile />,
   },
-
+  {
+    name: "Pitch an Idea",
+    layout: "/innovator",
+    path: "pitchingidea",
+    icon: <MdHome className="h-6 w-6" />,
+    component: <PitchingIdeas />,
+  },
 ];
 export default routesinnovator;

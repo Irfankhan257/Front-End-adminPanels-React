@@ -6,18 +6,27 @@ import { FeedController } from "controllers/feedController";
 
 export const Feedcards = ({ idea }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [userRating,setUserRating] = useState({})
+  const [userRating, setUserRating] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const closeModal = () => setModalIsOpen(false);
-  
+
+  console.log("userRating", userRating);
 
   const fetchRating = async () => {
-    const userRating = {
+    const payload = {
       id: idea.innovator.id,
       role: idea.innovator.role,
     };
-    const fetchuserRating = await FeedController.FetchUserRating(userRating);
-    setUserRating(fetchuserRating);
+    setLoading(true); // Set loading to true when fetching starts
+    try {
+      const fetchuserRating = await FeedController.FetchUserRating(payload);
+      setUserRating(fetchuserRating);
+    } catch (error) {
+      console.error("Failed to fetch user rating:", error);
+    } finally {
+      setLoading(false); // Set loading to false when fetching ends
+    }
   };
 
   const handleClick = () => {
@@ -64,6 +73,7 @@ export const Feedcards = ({ idea }) => {
         onRequestClose={closeModal}
         user={idea.innovator}
         rating={userRating}
+        loading={loading}
       />
     </>
   );
