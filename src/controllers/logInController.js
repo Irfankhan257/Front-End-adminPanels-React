@@ -4,7 +4,6 @@ export const LogInController = {
   InnovatorLogIn: async (payload) => {
     try {
       const data = await callingapiservice.SignInInnovator(payload);
-      console.log(data.data.user);
       return data.data.user;
     } catch (error) {
       console.error("Error fetching ideas:", error);
@@ -22,6 +21,14 @@ export const LogInController = {
     try {
       const data = await callingapiservice.SignUp(payload);
       return data.data.message;
+    } catch (error) {
+      console.error("Error fetching ideas:", error);
+    }
+  },
+  UserInfo: async (payload) => {
+    try {
+      const data = await callingapiservice.UserInfo(payload);
+      return data.data.data;
     } catch (error) {
       console.error("Error fetching ideas:", error);
     }

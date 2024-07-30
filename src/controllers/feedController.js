@@ -10,10 +10,18 @@ export const FeedController = {
     }
   },
 
+  FetchIdeasByInnovator: async (payload) => {
+    try {
+      const data = await callingapiservice.getIdeasByInnovatorId(payload);
+      return data.data.innovatorIdeas;
+    } catch (error) {
+      console.error("Error fetching ideas:", error);
+    }
+  },
+
   FetchUserRating: async (payload) => {
     try {
       const data = await callingapiservice.FetchUserRating(payload);
-      console.log(data);
       return data.data;
     } catch (error) {
       console.error("Error fetching ideas:", error);
@@ -23,7 +31,6 @@ export const FeedController = {
   PostUserRating: async (payload) => {
     try {
       const data = await callingapiservice.PostUserRating(payload);
-      console.log(data);
       return data.data;
     } catch (error) {
       console.error("Error fetching ideas:", error);

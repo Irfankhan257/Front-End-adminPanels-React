@@ -40,7 +40,6 @@ export default function SignUp() {
 
     try {
       const signUpData = await LogInController.SignUp(payload);
-      console.log("signUpData", signUpData);
       if (signUpData) {
         navigate("/investor");
       } else {

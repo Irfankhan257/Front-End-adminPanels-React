@@ -1,7 +1,7 @@
 import Card from "components/card";
 import React from "react";
 
-const General = () => {
+const General = ({ userInfo }) => {
   return (
     <Card extra={"w-full h-full p-3"}>
       {/* Header */}
@@ -20,44 +20,44 @@ const General = () => {
       {/* Cards */}
       <div className="grid grid-cols-2 gap-4 px-2">
         <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-          <p className="text-sm text-gray-600">Education</p>
+          <p className="text-sm text-gray-600">City</p>
           <p className="text-base font-medium text-navy-700 dark:text-white">
-            Stanford University
+            {userInfo.city}
           </p>
         </div>
 
         <div className="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-          <p className="text-sm text-gray-600">Languages</p>
+          <p className="text-sm text-gray-600">Country</p>
           <p className="text-base font-medium text-navy-700 dark:text-white">
-            English, Spanish, Italian
+            {userInfo.country}
           </p>
         </div>
 
         <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-          <p className="text-sm text-gray-600">Department</p>
+          <p className="text-sm text-gray-600">Email</p>
           <p className="text-base font-medium text-navy-700 dark:text-white">
-            Product Design
+            {userInfo.email}
           </p>
         </div>
 
         <div className="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-          <p className="text-sm text-gray-600">Work History</p>
+          <p className="text-sm text-gray-600">Password</p>
           <p className="text-base font-medium text-navy-700 dark:text-white">
-            English, Spanish, Italian
+            {userInfo.password}
           </p>
         </div>
 
         <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-          <p className="text-sm text-gray-600">Organization</p>
+          <p className="text-sm text-gray-600">Phone</p>
           <p className="text-base font-medium text-navy-700 dark:text-white">
-            Simmmple Web LLC
+            {userInfo.phone}
           </p>
         </div>
 
         <div className="flex flex-col justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
-          <p className="text-sm text-gray-600">Birthday</p>
+          <p className="text-sm text-gray-600">role</p>
           <p className="text-base font-medium text-navy-700 dark:text-white">
-            20 July 1986
+            {userInfo.role}
           </p>
         </div>
       </div>

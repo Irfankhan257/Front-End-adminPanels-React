@@ -28,8 +28,8 @@ export const Feedcards = ({ idea }) => {
   };
 
   const handleClick = () => {
-    setModalIsOpen(true);
     fetchRating();
+    setModalIsOpen(true);
   };
 
   return (
@@ -69,7 +69,7 @@ export const Feedcards = ({ idea }) => {
       <UserInfoModal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        user={idea.innovator}
+        innovator={idea.innovator}
         rating={userRating}
         loading={loading}
       />

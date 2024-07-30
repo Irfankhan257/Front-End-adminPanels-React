@@ -12,7 +12,6 @@ const Feed = () => {
   const [loading, setLoading] = useState(true);
 
   const { user, isAuthenticated } = useSelector(selectAuth);
-
   useEffect(() => {
     const fetchIdeas = async () => {
       const allIdeas = await FeedController.FetchIdeas();
@@ -24,6 +23,7 @@ const Feed = () => {
 
     fetchIdeas();
   }, []);
+
   return (
     <div className="col-span-1 my-7 h-fit w-full xl:col-span-1 2xl:col-span-2">
       <Banner1 />

@@ -25,11 +25,10 @@ export default function SignIn() {
       password: password,
     };
 
-    console.log(payload);
 
     try {
       const investor = await LogInController.InvestorLogIn(payload);
-      console.log("investor", investor);
+
       if (investor) {
         dispatch(signInSuccess(investor));
         navigate("/investor");

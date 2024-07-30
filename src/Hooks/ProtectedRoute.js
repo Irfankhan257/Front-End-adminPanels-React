@@ -7,7 +7,6 @@ import { Navigate } from "react-router-dom";
 const RoleProtectedRoute = ({ children, requiredRole }) => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const role = useSelector(selectRole);
-  console.log(role);
 
   if (!isAuthenticated) {
     return <Navigate to="/innovatorsignin" />;

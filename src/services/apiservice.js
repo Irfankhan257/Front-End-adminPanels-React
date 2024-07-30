@@ -2,6 +2,7 @@ import axios from "axios";
 
 export async function apiService(apiName, payload, method = "GET") {
   try {
+    // const url = `http://localhost:8080/${apiName}/`;
     const url = `https://fypbackend.azurewebsites.net/${apiName}/`;
     const headers = {
       Accept: "application/json",
@@ -11,9 +12,8 @@ export async function apiService(apiName, payload, method = "GET") {
       headers,
     };
 
-
     if (method === "GET") {
-      axiosConfig.data = payload;
+      axiosConfig.params = payload;
     } else if (method === "POST") {
       axiosConfig.data = payload;
     } else {

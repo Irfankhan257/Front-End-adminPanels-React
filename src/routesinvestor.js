@@ -6,12 +6,12 @@ import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/investor/profile";
 import DataTables from "views/admin/tables";
 import FeedTable from "views/investor/feed";
+import ChatBox from "views/investor/chatbot/Chatbot";
 import RTLDefault from "views/rtl/default";
 
 // Auth Imports
 import InnovatorSignIn from "views/innovatorAuth/InnovatorSignIn";
 import InvestorSignIn from "views/investorAuth/InvestorSignIn";
-
 
 // Icon Imports
 import {
@@ -28,9 +28,9 @@ const routes = [
     layout: "/investor",
     path: "feed",
     icon: <MdHome className="h-6 w-6" />,
-    component: <FeedTable/>,
+    component: <FeedTable />,
   },
-  
+
   {
     name: "Profile",
     layout: "/investor",
@@ -39,5 +39,12 @@ const routes = [
     component: <Profile />,
   },
 
+  {
+    name: "Chat AI",
+    layout: "/investor",
+    path: "chatai",
+    icon: <MdPerson className="h-6 w-6" />,
+    component: <ChatBox />,
+  },
 ];
 export default routes;

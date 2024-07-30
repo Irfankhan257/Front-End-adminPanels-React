@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signInSuccess } from "features/auth/authSlice";
 import { setError } from "features/auth/authSlice";
-import { CircularProgress } from "@mui/material";
+import { Box, CircularProgress, LinearProgress } from "@mui/material";
 
 export default function InnovatorSignIn() {
   const [email, setEmail] = useState("");
@@ -27,7 +27,6 @@ export default function InnovatorSignIn() {
     setIsLoading(true);
     try {
       const innovator = await LogInController.InnovatorLogIn(payload);
-      console.log("innovator", innovator);
       if (innovator) {
         dispatch(signInSuccess(innovator));
         navigate("/innovator");
@@ -46,9 +45,17 @@ export default function InnovatorSignIn() {
   return (
     <>
       {isLoading ? (
-        <div className="flex h-screen w-full items-center justify-center">
-          <CircularProgress />
-        </div>
+        <Box
+          sx={{
+            alignItems: "left",
+            justifyContent: "center",
+            height: "100vh",
+            width: "40%",
+            mt: 50,
+          }}
+        >
+          <LinearProgress />
+        </Box>
       ) : (
         <div className="mt-16 mb-16 flex h-full w-full items-center justify-center px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start">
           <div className="mt-[10vh] w-full max-w-full flex-col items-center md:pl-4 lg:pl-0 xl:max-w-[420px]">

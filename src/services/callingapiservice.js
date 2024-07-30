@@ -20,6 +20,10 @@ export const callingapiservice = {
     const apiName = "auth/edituserinfo";
     return apiService(apiName, payload, "POST");
   },
+  UserInfo: async (payload) => {
+    const apiName = "auth/user";
+    return apiService(apiName, payload, "GET");
+  },
 
   AddCompanyInfo: async (payload) => {
     const apiName = "company/addcompany";
@@ -36,9 +40,14 @@ export const callingapiservice = {
     return apiService(apiName, payload, "POST");
   },
 
-  GetAllIdea: async () => {
+  GetAllIdea: async (payload) => {
     const apiName = "ideas/getallideas";
-    return apiService(apiName, "GET");
+    return apiService(apiName, payload, "GET");
+  },
+
+  getIdeasByInnovatorId: async (payload) => {
+    const apiName = "ideas/getIdeasByInnovatorId";
+    return apiService(apiName, payload, "GET");
   },
 
   FetchUserRating: async (payload) => {
@@ -50,8 +59,16 @@ export const callingapiservice = {
     const apiName = "rating/userrating";
     return apiService(apiName, payload, "POST");
   },
-  GetTags: async () => {
+  GetTags: async (payload) => {
     const apiName = "tags/fetchtag";
-    return apiService(apiName, "GET");
+    return apiService(apiName, payload, "GET");
+  },
+  SendEmail: async (payload) => {
+    const apiName = "email/sendemail";
+    return apiService(apiName, payload, "POST");
+  },
+  sendMessage: async (payload) => {
+    const apiName = "ai/askai";
+    return apiService(apiName, payload, "POST");
   },
 };
