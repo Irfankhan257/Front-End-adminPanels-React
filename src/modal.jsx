@@ -25,21 +25,21 @@ const UserInfoModal = ({
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       width: "50%",
-      height: "auto",
+      maxHeight: "68%",
       padding: "0",
       borderRadius: "20px",
-      overflow: "hidden",
+      overflowY: "auto",
     },
   };
 
-    const { user } = useSelector(selectAuth);
-
+  const { user } = useSelector(selectAuth);
 
   const [postRating, setPostRating] = useState({
     id: innovator.id,
     role: innovator.role,
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [ratingDisabled, setRatingDisabled] = useState(false); // State to disable rating component
 
   const handleRatingChange = (event, newValue) => {
     setPostRating((prevState) => ({
@@ -53,9 +53,12 @@ const UserInfoModal = ({
     try {
       if (postRating.rating) {
         await FeedController.PostUserRating(postRating);
+        alert("Rating submitted successfully!"); // Show alert on success
+        setRatingDisabled(true); // Disable the rating component
       }
     } catch (error) {
       console.error("Rating failed:", error.message);
+      alert("Failed to submit rating."); // Show alert on failure
     } finally {
       setIsLoading(false);
     }
@@ -63,10 +66,10 @@ const UserInfoModal = ({
 
   const sendEmail = async () => {
     const emailDetails = {
-      to: "zackmarts2738@gmail.com",
+      to: innovator.email,
       sender: user.email,
       subject: "You've got a message!",
-      text: "Hello, an Investor/Innovator is trying to reach you. Please use the email Provided below to start communicating and build your start up!.",
+      text: "Hello, an Investor/Innovator is trying to reach you. Please use the email provided below to start communicating and build your startup!",
     };
 
     try {
@@ -92,7 +95,7 @@ const UserInfoModal = ({
           <CircularProgress />
         </div>
       ) : (
-        <Card extra="w-full h-full p-3">
+        <Card extra="w-full h-auto p-3">
           <div className="mt-2 mb-8 w-full">
             <h4 className="px-2 text-xl font-bold text-navy-700 dark:text-white">
               General Information
@@ -163,6 +166,7 @@ const UserInfoModal = ({
                   onClick={postRatingData}
                   precision={0.5}
                   sx={{ fontSize: 48 }}
+                  disabled={ratingDisabled} // Disable rating if set
                 />
                 <h2 className="ml-5 text-5xl font-bold text-navy-700 dark:text-white">
                   {rating.overAllRating !== undefined

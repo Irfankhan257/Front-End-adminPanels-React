@@ -6,10 +6,12 @@ import { LogInController } from "controllers/logInController";
 import { useDispatch, useSelector } from "react-redux";
 import { signInSuccess } from "features/auth/authSlice";
 import { setError } from "features/auth/authSlice";
+import { Box, LinearProgress } from "@mui/material";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { error } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,14 +27,17 @@ export default function SignIn() {
       password: password,
     };
 
-
+    setIsLoading(true);
     try {
       const investor = await LogInController.InvestorLogIn(payload);
 
       if (investor) {
         dispatch(signInSuccess(investor));
         navigate("/investor");
+        setIsLoading(false);
       } else {
+        setIsLoading(false);
+
         dispatch(setError("Invalid credentials. Please try again."));
       }
     } catch (error) {
@@ -41,6 +46,20 @@ export default function SignIn() {
     }
   };
   return (
+     <>
+      {isLoading ? (
+        <Box
+          sx={{
+            alignItems: "left",
+            justifyContent: "center",
+            height: "100vh",
+            width: "40%",
+            mt: 50,
+          }}
+        >
+          <LinearProgress />
+        </Box>
+      ) : (
     <div className="mt-16 mb-16 flex h-full w-full items-center justify-center px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start">
       <div className="mt-[10vh] w-full max-w-full flex-col items-center md:pl-4 lg:pl-0 xl:max-w-[420px]">
         <h4 className="mb-2.5 text-4xl font-bold text-navy-700 dark:text-white">
@@ -109,6 +128,7 @@ export default function SignIn() {
           </a>
         </div>
       </div>
-    </div>
+    </div>)}
+    </>
   );
 }
