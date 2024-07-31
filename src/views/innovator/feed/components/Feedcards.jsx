@@ -1,30 +1,43 @@
-// Feedcards.js
 import React, { useState } from "react";
 import Card from "components/card";
 import UserInfoModal from "modal";
 import { FeedController } from "controllers/feedController";
 
-export const Feedcards = ({ idea }) => {
+// Define an array of Tailwind color class names for the circles
+const colors = [
+  "bg-red-500",
+  "bg-orange-500",
+  "bg-amber-500",
+  "bg-yellow-500",
+  "bg-green-500",
+  "bg-teal-500",
+  "bg-cyan-500",
+  "bg-blue-500",
+  "bg-indigo-500",
+  "bg-purple-500",
+  "bg-pink-500",
+];
+
+export const Feedcards = ({ idea, index }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [userRating, setUserRating] = useState({});
   const [loading, setLoading] = useState(false);
 
   const closeModal = () => setModalIsOpen(false);
 
-
   const fetchRating = async () => {
     const payload = {
       id: idea.innovator.id,
       role: idea.innovator.role,
     };
-    setLoading(true); // Set loading to true when fetching starts
+    setLoading(true);
     try {
       const fetchuserRating = await FeedController.FetchUserRating(payload);
       setUserRating(fetchuserRating);
     } catch (error) {
       console.error("Failed to fetch user rating:", error);
     } finally {
-      setLoading(false); // Set loading to false when fetching ends
+      setLoading(false);
     }
   };
 
@@ -33,22 +46,41 @@ export const Feedcards = ({ idea }) => {
     setModalIsOpen(true);
   };
 
+  // Extract the first letter of each word in the idea title for initials
+  const getInitials = (title) => {
+    return title
+      .split(" ")
+      .map((word) => word[0])
+      .join("")
+      .toUpperCase();
+  };
+
+  // Use modulo to cycle through the color classes array
+  const colorIndex = Math.floor(
+    (idea.ideaTitle.charCodeAt(0) + idea.ideaTitle.length) % colors.length
+  );
+  const circleClass = colors[colorIndex];
+
+  console.log(circleClass);
+
   return (
     <>
       <Card extra="flex w-full h-full flex-col px-3 py-3">
         <div className="flex items-center">
-          <div className="relative m-1 mr-2 flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-xl text-white">
-            p
+          <div
+            className={`text-l text-black relative m-1 mr-2 flex h-12 w-12 items-center justify-center rounded-full ${circleClass}`}
+          >
+            {getInitials(idea.ideaTitle)}
           </div>
           <div className="info ml-3 flex-1">
             <h2>{idea.ideaTitle}</h2>
             <p>{idea.ideaDescription}</p>
           </div>
-          <div className="rating ml-auto mt-auto mb-2">
-            <h6>{idea.innovator.name}</h6>
+          <div className="rating ml-auto mt-auto mb-2 flex items-center">
+            <h6 className="mr-2">{idea.innovator.name}</h6>
             <button onClick={handleClick} className="focus:outline-none">
               <svg
-                className="peer cursor-pointer text-gray-600 duration-100 hover:text-yellow-400 peer-hover:text-yellow-400"
+                className="cursor-pointer text-gray-600 duration-100 hover:text-yellow-400"
                 width="23"
                 height="23"
                 xmlns="http://www.w3.org/2000/svg"
