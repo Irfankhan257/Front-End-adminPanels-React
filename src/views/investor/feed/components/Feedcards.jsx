@@ -68,7 +68,7 @@ export const Feedcards = ({ idea, index }) => {
       <Card extra="flex w-full h-full flex-col px-3 py-3">
         <div className="flex items-center">
           <div
-            className={`text-l text-black relative m-1 mr-2 flex h-12 w-12 items-center justify-center rounded-full ${circleClass}`}
+            className={`text-l relative m-1 mr-2 flex h-12 w-12 items-center justify-center rounded-full bg-blueSecondary text-white`}
           >
             {getInitials(idea.ideaTitle)}
           </div>
