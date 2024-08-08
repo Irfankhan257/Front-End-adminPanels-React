@@ -35,13 +35,12 @@ const InvesTechWebsite = () => {
             <span className="ml-3 text-xl text-blue-200">InvesTech</span>
           </a>
           <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto">
-            <a className="mr-5 text-gray-400 hover:text-gray-200">First Link</a>
+            <a className="mr-5 text-gray-400 hover:text-gray-200"></a>
             <a className="mr-5 text-gray-400 hover:text-gray-200">
-              Second Link
+              
             </a>
-            <a className="mr-5 text-gray-400 hover:text-gray-200">Third Link</a>
+            <a className="mr-5 text-gray-400 hover:text-gray-200"></a>
             <a className="mr-5 text-gray-400 hover:text-gray-200">
-              Fourth Link
             </a>
           </nav>
           <a

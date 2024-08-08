@@ -4,7 +4,15 @@ import { useState } from "react";
 import { LogInController } from "controllers/logInController";
 import { useDispatch, useSelector } from "react-redux";
 import { setError } from "features/auth/authSlice";
-import { Box, CircularProgress, LinearProgress } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  LinearProgress,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+} from "@mui/material";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -112,16 +120,19 @@ export default function SignUp() {
                   value={password}
                   onChange={handlePasswordChange}
                 />
-                <InputField
-                  variant="auth"
-                  extra="mb-3 w-[48%]"
-                  label="Role*"
-                  placeholder="Role"
-                  id="role"
-                  type="text"
-                  value={role}
-                  onChange={handleRoleChange}
-                />
+                <FormControl variant="outlined" className="mb-3 w-[48%]">
+                  <InputLabel id="role-label">Role*</InputLabel>
+                  <Select
+                    labelId="role-label"
+                    id="role"
+                    value={role}
+                    onChange={handleRoleChange}
+                    label="Role*"
+                  >
+                    <MenuItem value="innovator">Innovator</MenuItem>
+                    <MenuItem value="investor">Investor</MenuItem>
+                  </Select>
+                </FormControl>
                 <InputField
                   variant="auth"
                   extra="mb-3 w-[48%]"
