@@ -25,9 +25,9 @@ const ProfileOverview = () => {
           role: user.role,
         };
 
-        const ideasPayload ={
-          innovatorId : user.id
-        }
+        const ideasPayload = {
+          innovatorId: user.id,
+        };
         setIsLoading(true); // Set loading to true when fetching starts
         try {
           const fetchUserRating = await FeedController.FetchUserRating(payload);
@@ -69,7 +69,7 @@ const ProfileOverview = () => {
             <div className="col-span-7 lg:!mb-0">
               <Project userIdeas={userIdeas} />
             </div>
-            <div className="col-span-5 lg:col-span-6 lg:mb-0 3xl:col-span-5">
+            <div className="col-span-5 lg:!mb-0">
               <General userInfo={userInfo} />
             </div>
           </div>
