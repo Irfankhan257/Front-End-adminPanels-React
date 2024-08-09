@@ -71,4 +71,8 @@ export const callingapiservice = {
     const apiName = "ai/askai";
     return apiService(apiName, payload, "POST");
   },
+  searchIdeas: async (payload) => {
+    const apiName = "ideas/searchideas";
+    return apiService(apiName, payload, "GET");
+  },
 };

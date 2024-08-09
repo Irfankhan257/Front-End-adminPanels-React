@@ -33,4 +33,12 @@ export const LogInController = {
       console.error("Error fetching ideas:", error);
     }
   },
+  EditInfo: async (payload) => {
+    try {
+      const data = await callingapiservice.EditInfo(payload);
+      return data.data;
+    } catch (error) {
+      console.error("Error fetching ideas:", error);
+    }
+  },
 };

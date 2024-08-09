@@ -15,6 +15,16 @@ const Navbar = (props) => {
   const [darkmode, setDarkmode] = React.useState(false);
   const { user, isAuthenticated } = useSelector(selectAuth);
 
+   const getInitials = (name) => {
+     return name
+       .split(" ")
+       .map((word) => word[0])
+       .slice(0, 3)
+       .join("")
+       .toUpperCase();
+   };
+
+
   const handleSignOut = () => {
     dispatch(signOut());
   };
@@ -83,11 +93,11 @@ const Navbar = (props) => {
         {/* Profile & Dropdown */}
         <Dropdown
           button={
-            <img
-              className="h-10 w-10 rounded-full"
-              src={avatar}
-              alt="Elon Musk"
-            />
+            <div
+              className={`text-black text-l relative m-1 mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-lightPrimary`}
+            >
+              {getInitials(user.fullName)}
+            </div>
           }
           children={
             <div className="flex w-56 flex-col justify-start rounded-[20px] bg-white bg-cover bg-no-repeat shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">

@@ -28,7 +28,7 @@ const ProfileOverview = () => {
         const ideasPayload = {
           innovatorId: user.id,
         };
-        setIsLoading(true); // Set loading to true when fetching starts
+        setIsLoading(true); 
         try {
           const fetchUserRating = await FeedController.FetchUserRating(payload);
           const fetchUserInfo = await LogInController.UserInfo(payload);
@@ -41,13 +41,22 @@ const ProfileOverview = () => {
         } catch (error) {
           console.error("Failed to fetch user rating:", error);
         } finally {
-          setIsLoading(false); // Set loading to false when fetching ends
+          setIsLoading(false); 
         }
       };
 
       fetchUserInfo();
     }
   }, [user]);
+
+   const getInitials = (title) => {
+    return title
+      .split(" ")
+      .map((word) => word[0])
+      .slice(0, 3)
+      .join("")
+      .toUpperCase();
+  };
 
   return (
     <>

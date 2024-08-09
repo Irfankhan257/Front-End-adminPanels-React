@@ -46,11 +46,11 @@ export const Feedcards = ({ idea, index }) => {
     setModalIsOpen(true);
   };
 
-  // Extract the first letter of each word in the idea title for initials
   const getInitials = (title) => {
     return title
       .split(" ")
       .map((word) => word[0])
+      .slice(0, 3)
       .join("")
       .toUpperCase();
   };
@@ -60,8 +60,6 @@ export const Feedcards = ({ idea, index }) => {
     (idea.ideaTitle.charCodeAt(0) + idea.ideaTitle.length) % colors.length
   );
   const circleClass = colors[colorIndex];
-
-  console.log(circleClass);
 
   return (
     <>
@@ -97,6 +95,20 @@ export const Feedcards = ({ idea, index }) => {
               </svg>
             </button>
           </div>
+        </div>
+        <div className="m-3 mt-auto flex w-full">
+          <h6 className="mr-3 text-lg font-semibold text-gray-800 dark:text-gray-200">
+            Tag:
+          </h6>
+          {idea.ideaTag && idea.ideaTag.Tag ? (
+            <span className="rounded-full bg-gray-200 px-2 py-1 text-sm text-gray-700 dark:bg-gray-700 dark:text-gray-300">
+              {idea.ideaTag.Tag}
+            </span>
+          ) : (
+            <p className="rounded-full bg-gray-200 px-2 py-1 text-sm text-gray-700 dark:bg-gray-700 dark:text-gray-300">
+              No tags
+            </p>
+          )}
         </div>
       </Card>
       <UserInfoModal

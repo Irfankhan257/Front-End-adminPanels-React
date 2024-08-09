@@ -29,6 +29,7 @@ const PitchingIdeas = () => {
       title: title,
       description: description,
       userId: user.id,
+      tagId: selectedTag,
     };
 
     setLoading(true);

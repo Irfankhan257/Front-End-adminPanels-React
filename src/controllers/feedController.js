@@ -19,6 +19,15 @@ export const FeedController = {
     }
   },
 
+  FetchIdeasBySearch: async (payload) => {
+    try {
+      const data = await callingapiservice.searchIdeas(payload);
+      return data.data.ideas;
+    } catch (error) {
+      console.error("Error fetching ideas:", error);
+    }
+  },
+
   FetchUserRating: async (payload) => {
     try {
       const data = await callingapiservice.FetchUserRating(payload);
