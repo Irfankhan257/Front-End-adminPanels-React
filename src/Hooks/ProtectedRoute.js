@@ -9,11 +9,11 @@ const RoleProtectedRoute = ({ children, requiredRole }) => {
   const role = useSelector(selectRole);
 
   if (!isAuthenticated) {
-    return <Navigate to="/innovatorsignin" />;
+    return <Navigate to="/login" />;
   }
 
   if (role !== requiredRole) {
-    return <Navigate to="/innovatorsignin" />;
+    return <Navigate to="/login" />;
   }
 
   return children;

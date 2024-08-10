@@ -39,7 +39,7 @@ const UserInfoModal = ({
     role: innovator.role,
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [ratingDisabled, setRatingDisabled] = useState(false); // State to disable rating component
+  const [ratingDisabled, setRatingDisabled] = useState(false); 
 
   const handleRatingChange = (event, newValue) => {
     setPostRating((prevState) => ({

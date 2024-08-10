@@ -10,7 +10,7 @@ const InnovatorInvestorScreen = () => {
         <div className="from-90% via-30% to-10% absolute inset-0 bg-gradient-to-r from-black-950 via-slate-900 to-teal-500 text-gray-600"></div>
         <div className="relative text-center text-white">
           <h2 className="mb-4 text-4xl font-bold">Innovator</h2>
-          <a href="/innovator">
+          <a href="/innovatorsignin">
             <button className="bg-transparent border border-white py-2 px-4 text-white transition duration-300 hover:bg-teal-500">
               LogIn
             </button>

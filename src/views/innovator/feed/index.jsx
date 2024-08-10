@@ -128,7 +128,7 @@ const Feed = () => {
               onChange={(e, value) => setPage(value)}
               variant="outlined"
               shape="rounded"
-              className="mt-4 flex justify-center"
+              className="mt-4 flex justify-center dark:text-white"
             />
           </>
         )}

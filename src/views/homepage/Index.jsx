@@ -3,6 +3,11 @@ import "./Investech.css";
 import logo from "../../assets/img/logo/logo-removebg-previewR.png";
 import investor from "../../assets/img/logo/investorr.png";
 import innovator from "../../assets/img/logo/innovator.png";
+import lappy from "../../assets/img/logo/Untitledremovebg-preview.png";
+import pic1 from "../../assets/img/logo/pexels-fauxels-3183197.jpg";
+import pic2 from "../../assets/img/logo/pexels-karolina-grabowska-7876667.jpg";
+import pic3 from "../../assets/img/logo/pexels-sora-shimazaki-5673488.jpg";
+import pic4 from "../../assets/img/logo/1.png";
 import { Link } from "react-router-dom";
 
 const InvesTechWebsite = () => {
@@ -28,11 +33,11 @@ const InvesTechWebsite = () => {
 
   return (
     <div className="bg-black-950">
-      <header className="body-font bg-transparent rounded-4xl fixed top-0 z-10 mx-9 w-full text-gray-600 backdrop-blur-md backdrop-filter ">
+      <header className="body-font rounded-4xl bg-transparent fixed top-0 z-10 mx-9 w-full text-white backdrop-blur-md backdrop-filter ">
         <div className="container mx-auto flex flex-col flex-wrap items-center p-5 md:flex-row">
           <a className="title-font mb-4 flex items-center font-medium text-gray-900 md:mb-0">
             <img className="h-14 w-20 object-contain" alt="hero" src={logo} />
-            <span className="ml-3 text-xl text-blue-200">InvesTech</span>
+            <span className="ml-3 text-xl text-white">InvesTech</span>
           </a>
           <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto md:mr-auto">
             <a className="mr-5 text-gray-400 hover:text-gray-200"></a>
@@ -60,15 +65,16 @@ const InvesTechWebsite = () => {
         </div>
       </header>
 
-      <section className="body-font from-10% via-30% to-90% bg-gradient-to-l from-black-950 via-slate-900 to-teal-500 text-gray-600">
+      <section className="body-font bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-teal-300 via-slate-900 to-black-950">
         <div className="animate-fade-in-and-up container mx-auto flex flex-col items-center px-5 py-48 md:flex-row ">
           <div className="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:pr-16 md:text-left lg:flex-grow lg:pr-24">
-            <h1 className="title-font text-slate-300 mb-4 text-3xl font-medium sm:text-4xl">
+            <h1 className="title-font font-large mb-4 text-6xl text-white sm:text-6xl">
               Welcome to Investech
-              <br className="hidden lg:inline-block" />
-              Where Innovation Meets Investment!
             </h1>
-            <p className="text-slate-400 mb-8  leading-relaxed ">
+            <h6 className="title-font font-small mb-2 text-2xl text-white ">
+              Where Innovation Meets Investment!
+            </h6>
+            <p className="mb-8 leading-relaxed  text-gray-200 ">
               At Investech, we're not just building solutions; we're shaping the
               future of business World. Welcome to Investech Hub, your
               destination for connecting innovators with investors. We're here
@@ -76,9 +82,7 @@ const InvesTechWebsite = () => {
               more rewarding for everyone involved.
             </p>
             <div className="flex justify-center">
-              <a
-                href="/signup"
-              >
+              <a href="/signup">
                 <button className="inline-flex rounded border-0 bg-indigo-500 py-2 px-6 text-lg text-white hover:bg-indigo-600 focus:outline-none">
                   SignUp
                 </button>
@@ -94,7 +98,7 @@ const InvesTechWebsite = () => {
           </div>
         </div>
       </section>
-      <section className="body-font mx-9 my-9 rounded-3xl bg-gradient-to-b from-slate-900 via-teal-500 to-slate-900 text-gray-600">
+      <section className="body-font mx-9 my-9 rounded-3xl bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black-950 via-slate-900 to-teal-400">
         <div
           id="animate-fade-in-and-up"
           className={`container mx-auto flex flex-wrap px-5 py-24 ${
@@ -105,30 +109,20 @@ const InvesTechWebsite = () => {
             <div className="relative mb-4 flex w-full flex-wrap bg-gray-100 py-32 px-10">
               <img
                 alt="gallery"
-                className="absolute inset-0 block h-full w-full object-cover object-center opacity-25"
-                src="https://dummyimage.com/820x340"
+                className="absolute inset-0 block h-full w-full object-fill object-center opacity-40"
+                src={pic1}
               />
               <div className="relative z-10 w-full text-center">
-                <h2 className="title-font mb-2 text-2xl font-medium text-gray-900">
-                  Shooting Stars
+                <h2 className="title-font mb-2 text-xl font-medium text-black-950">
+                  Why Investech?
                 </h2>
-                <p className="leading-relaxed">
-                  Skateboard +1 mustache fixie paleo lumbersexual.
+                <p className="font-medium leading-relaxed text-black-950">
+                  At Investech, we simplify the process of finding and funding
+                  innovative ideas. Whether you're an investor looking for the
+                  next big thing or an entrepreneur seeking support, our
+                  platform connects you with the right opportunities and
+                  resources to succeed.
                 </p>
-                <a className="mt-3 inline-flex items-center text-indigo-500">
-                  Learn More
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    className="ml-2 h-4 w-4"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
               </div>
             </div>
             <div className="-mx-2 flex flex-wrap">
@@ -136,30 +130,19 @@ const InvesTechWebsite = () => {
                 <div className="relative flex w-full flex-wrap bg-gray-100 py-16 px-6 sm:py-24 sm:px-10">
                   <img
                     alt="gallery"
-                    className="absolute inset-0 block h-full w-full object-cover object-center opacity-25"
-                    src="https://dummyimage.com/542x460"
+                    className="absolute inset-0 block h-full w-full object-fill object-center opacity-40"
+                    src={pic2}
                   />
                   <div className="relative z-10 w-full text-center">
-                    <h2 className="title-font mb-2 text-xl font-medium text-gray-900">
-                      Shooting Stars
+                    <h2 className="title-font mb-2 text-xl font-medium text-black-950">
+                      For Investors
                     </h2>
-                    <p className="leading-relaxed">
-                      Skateboard +1 mustache fixie paleo lumbersexual.
+                    <p className="font-medium leading-relaxed text-black-950">
+                      Discover a wide range of investment opportunities. Explore
+                      startups and growing companies in various industries and
+                      stages of development. Connect with passionate founders,
+                      do your research, and make smart investment decisions.
                     </p>
-                    <a className="mt-3 inline-flex items-center text-indigo-500">
-                      Learn More
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="ml-2 h-4 w-4"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
                   </div>
                 </div>
               </div>
@@ -167,30 +150,20 @@ const InvesTechWebsite = () => {
                 <div className="relative flex w-full flex-wrap bg-gray-100 py-16 px-6 sm:py-24 sm:px-10">
                   <img
                     alt="gallery"
-                    className="absolute inset-0 block h-full w-full object-cover object-center opacity-25"
-                    src="https://dummyimage.com/542x420"
+                    className="absolute inset-0 block h-full w-full object-fill object-center opacity-40"
+                    src={pic3}
                   />
                   <div className="relative z-10 w-full text-center">
-                    <h2 className="title-font mb-2 text-xl font-medium text-gray-900">
-                      Shooting Stars
+                    <h2 className="title-font mb-2 text-xl font-medium text-black-950">
+                      For Innovators
                     </h2>
-                    <p className="leading-relaxed">
-                      Skateboard +1 mustache fixie paleo lumbersexual.
+                    <p className="font-medium leading-relaxed text-black-950">
+                      Showcase your innovative ideas to a global network of
+                      investors eager to support you. Get access to funding,
+                      guidance, and tools to grow your business. Connect with
+                      potential partners, validate your business model, and take
+                      your venture to new heights.
                     </p>
-                    <a className="mt-3 inline-flex items-center text-indigo-500">
-                      Learn More
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="ml-2 h-4 w-4"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
                   </div>
                 </div>
               </div>
@@ -246,304 +219,64 @@ const InvesTechWebsite = () => {
         <div className="container mx-auto flex flex-wrap px-5 py-24">
           <div className="-mx-4 mt-auto mb-auto flex flex-wrap content-start sm:w-2/3 sm:pr-10 lg:w-1/2">
             <div className="mb-6 w-full px-4 sm:p-4">
-              <h1 className="title-font mb-2 text-xl font-medium text-blue-500">
-                Moon hashtag pop-up try-hard offal truffaut
+              <h1 className="title-font font-large mb-4 text-4xl text-white sm:text-4xl">
+                Portal Showcase:
               </h1>
-              <div className="leading-relaxed text-gray-400">
-                Pour-over craft beer pug drinking vinegar live-edge gastropub,
-                keytar neutra sustainable fingerstache kickstarter.
-              </div>
-            </div>
-            <div className="w-1/2 p-4 sm:w-1/2 lg:w-1/4">
-              <h2 className="title-font text-3xl font-medium text-red-600">
-                2.7K
-              </h2>
-              <p className="leading-relaxed text-gray-400">Users</p>
-            </div>
-            <div className="w-1/2 p-4 sm:w-1/2 lg:w-1/4">
-              <h2 className="title-font text-3xl font-medium text-red-600">
-                1.8K
-              </h2>
-              <p className="leading-relaxed text-gray-400">Subscribes</p>
-            </div>
-            <div className="w-1/2 p-4 sm:w-1/2 lg:w-1/4">
-              <h2 className="title-font text-3xl font-medium text-red-600">
-                35
-              </h2>
-              <p className="leading-relaxed text-gray-400">Downloads</p>
-            </div>
-            <div className="w-1/2 p-4 sm:w-1/2 lg:w-1/4">
-              <h2 className="title-font text-3xl font-medium text-red-600">
-                4
-              </h2>
-              <p className="leading-relaxed text-gray-400">Products</p>
+              <h6 className="title-font font-small mb-2 text-2xl text-white ">
+                Explore Opportunities and Resources
+              </h6>
+              <p className="mb-8 leading-relaxed  text-gray-200 ">
+                For Investors: The Investor Portal offers a curated selection of
+                ventures across sectors and stages, streamlining exploration and
+                due diligence. Connect with founders, track investments, and
+                initiate discussions effortlessly.
+                <br className="hidden lg:inline-block" />
+                <br className="hidden lg:inline-block" />
+                For Innovators: Showcase your vision and access resources to
+                fuel growth through the Innovator Portal. Simplify collaboration
+                with investors, share updates, and receive feedback within a
+                user- friendly interface
+              </p>
             </div>
           </div>
           <div className="mt-6 ml-6 w-full overflow-hidden rounded-lg sm:mt-0 sm:w-1/2 lg:w-1/2">
             <img
               className="h-full w-full object-cover object-center"
-              src="https://dummyimage.com/600x300"
+              src={lappy}
               alt="stats"
             />
           </div>
         </div>
       </section>
-      <section className="body-font mx-9 my-9 rounded-3xl bg-gradient-to-b from-teal-500 via-slate-900 to-teal-500 text-gray-600">
-        <div className="container mx-auto px-5 py-24">
-          <div className="mb-20 flex w-full flex-col text-center">
-            <h1 className="title-font mb-4 text-2xl font-medium tracking-widest text-blue-300">
-              OUR TEAM
-            </h1>
-            <p className="mx-auto text-base leading-relaxed text-gray-400 lg:w-2/3">
-              Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-              gentrify, subway tile poke farm-to-table. Franzen you probably
-              haven't heard of them.
+      <section className="body-font relative mx-9 my-9 rounded-3xl bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black-950 via-slate-900 to-teal-300">
+        <div className="container relative mx-auto px-5 py-24">
+          <img
+            className="h-full w-full object-cover object-center opacity-40"
+            src={pic4}
+            alt="stats"
+          />
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-5 text-center">
+            <h2 className="title-font mb-9 text-5xl font-medium text-white">
+              Join Our Community
+            </h2>
+            <p className="font-medium leading-relaxed text-white">
+              Join our community of investors, entrepreneurs, and industry
+              experts. Together, let's drive innovation and create positive
+              <br className="hidden md:inline-block" />
+              change. Sign up now to start exploring opportunities and
+              connecting with like-minded individuals.
+              <br className="hidden md:inline-block" />
+              <h2 className="title-font mb-8 mt-5 text-3xl font-medium text-white">
+                Get Started Today
+              </h2>
+              Ready to dive into the world of Investech? Sign up now to unlock
+              opportunities, connect with others, and be part of something
+              bigger.
             </p>
-          </div>
-          <div className="-m-4 flex flex-wrap">
-            <div className="p-4 lg:w-1/2">
-              <div className="flex h-full flex-col items-center justify-center text-center sm:flex-row sm:justify-start sm:text-left">
-                <img
-                  alt="team"
-                  className="mb-4 h-48 w-48 flex-shrink-0 rounded-lg object-cover object-center sm:mb-0"
-                  src="https://dummyimage.com/200x200"
-                />
-                <div className="flex-grow sm:pl-8">
-                  <h2 className="title-font text-lg font-medium text-blue-300">
-                    Holden Caulfield
-                  </h2>
-                  <h3 className="mb-3 text-red-500">UI Developer</h3>
-                  <p className="mb-4 text-gray-300">
-                    DIY tote bag drinking vinegar cronut adaptogen squid fanny
-                    pack vaporware.
-                  </p>
-                  <span className="inline-flex">
-                    <a className="text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                      </svg>
-                    </a>
-                    <a className="ml-2 text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                      </svg>
-                    </a>
-                    <a className="ml-2 text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                      </svg>
-                    </a>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/2">
-              <div className="flex h-full flex-col items-center justify-center text-center sm:flex-row sm:justify-start sm:text-left">
-                <img
-                  alt="team"
-                  className="mb-4 h-48 w-48 flex-shrink-0 rounded-lg object-cover object-center sm:mb-0"
-                  src="https://dummyimage.com/201x201"
-                />
-                <div className="flex-grow sm:pl-8">
-                  <h2 className="title-font text-lg font-medium text-gray-900">
-                    Alper Kamu
-                  </h2>
-                  <h3 className="mb-3 text-gray-500">Designer</h3>
-                  <p className="mb-4">
-                    DIY tote bag drinking vinegar cronut adaptogen squid fanny
-                    pack vaporware.
-                  </p>
-                  <span className="inline-flex">
-                    <a className="text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                      </svg>
-                    </a>
-                    <a className="ml-2 text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                      </svg>
-                    </a>
-                    <a className="ml-2 text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                      </svg>
-                    </a>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/2">
-              <div className="flex h-full flex-col items-center justify-center text-center sm:flex-row sm:justify-start sm:text-left">
-                <img
-                  alt="team"
-                  className="mb-4 h-48 w-48 flex-shrink-0 rounded-lg object-cover object-center sm:mb-0"
-                  src="https://dummyimage.com/204x204"
-                />
-                <div className="flex-grow sm:pl-8">
-                  <h2 className="title-font text-lg font-medium text-gray-900">
-                    Atticus Finch
-                  </h2>
-                  <h3 className="mb-3 text-gray-500">UI Developer</h3>
-                  <p className="mb-4">
-                    DIY tote bag drinking vinegar cronut adaptogen squid fanny
-                    pack vaporware.
-                  </p>
-                  <span className="inline-flex">
-                    <a className="text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                      </svg>
-                    </a>
-                    <a className="ml-2 text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                      </svg>
-                    </a>
-                    <a className="ml-2 text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                      </svg>
-                    </a>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 lg:w-1/2">
-              <div className="flex h-full flex-col items-center justify-center text-center sm:flex-row sm:justify-start sm:text-left">
-                <img
-                  alt="team"
-                  className="mb-4 h-48 w-48 flex-shrink-0 rounded-lg object-cover object-center sm:mb-0"
-                  src="https://dummyimage.com/206x206"
-                />
-                <div className="flex-grow sm:pl-8">
-                  <h2 className="title-font text-lg font-medium text-gray-900">
-                    Henry Letham
-                  </h2>
-                  <h3 className="mb-3 text-gray-500">Designer</h3>
-                  <p className="mb-4">
-                    DIY tote bag drinking vinegar cronut adaptogen squid fanny
-                    pack vaporware.
-                  </p>
-                  <span className="inline-flex">
-                    <a className="text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                      </svg>
-                    </a>
-                    <a className="ml-2 text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                      </svg>
-                    </a>
-                    <a className="ml-2 text-gray-500">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                      </svg>
-                    </a>
-                  </span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
+
       <footer className="body-font mx-9  my-9  rounded-3xl bg-gradient-to-l from-slate-900 to-teal-500 text-gray-600 ">
         <div className="container mx-auto flex flex-col flex-wrap px-5 py-24 md:flex-row md:flex-nowrap md:items-center lg:items-start">
           <div className="mx-auto mt-10 w-64 flex-shrink-0 text-center md:mx-0 md:mt-0 md:text-left">
