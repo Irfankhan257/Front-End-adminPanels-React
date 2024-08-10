@@ -18,11 +18,12 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
-  const [phone, setPhone] = useState(0);
+  const [phone, setPhone] = useState("");
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -36,8 +37,23 @@ export default function SignUp() {
   const handleNameChange = (e) => setName(e.target.value);
   const handlePhoneChange = (e) => setPhone(e.target.value);
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!name) newErrors.name = "Name is required.";
+    if (!email) newErrors.email = "Email is required.";
+    if (!password) newErrors.password = "Password is required.";
+    if (!role) newErrors.role = "Role is required.";
+    if (!city) newErrors.city = "City is required.";
+    if (!phone) newErrors.phone = "Phone number is required.";
+    if (!country) newErrors.country = "Country is required.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
     const payload = {
       email: email,
       password: password,
@@ -49,19 +65,18 @@ export default function SignUp() {
     };
 
     setIsLoading(true);
-
     try {
       const signUpData = await LogInController.SignUp(payload);
       if (signUpData) {
         navigate("/login");
-        setIsLoading(false);
       } else {
-        dispatch(setError("credentials Failed. Please try again."));
-        setIsLoading(false);
+        dispatch(setError("Credentials failed. Please try again."));
       }
     } catch (error) {
       console.error("Sign Up failed:", error.message);
       dispatch(setError("Sign Up failed. Please try again later."));
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -72,7 +87,7 @@ export default function SignUp() {
           sx={{
             alignItems: "left",
             justifyContent: "center",
-            height: "100vh",
+            height: "30vh",
             width: "40%",
             mt: 50,
           }}
@@ -99,6 +114,7 @@ export default function SignUp() {
                   type="text"
                   value={name}
                   onChange={handleNameChange}
+                  error={errors.name}
                 />
                 <InputField
                   variant="auth"
@@ -109,6 +125,7 @@ export default function SignUp() {
                   type="text"
                   value={email}
                   onChange={handleEmailChange}
+                  error={errors.email}
                 />
                 <InputField
                   variant="auth"
@@ -119,6 +136,7 @@ export default function SignUp() {
                   type="password"
                   value={password}
                   onChange={handlePasswordChange}
+                  error={errors.password}
                 />
                 <FormControl variant="outlined" className="mb-3 w-[48%]">
                   <InputLabel
@@ -147,6 +165,9 @@ export default function SignUp() {
                       Investor
                     </MenuItem>
                   </Select>
+                  {errors.role && (
+                    <p className="text-sm text-red-500">{errors.role}</p>
+                  )}
                 </FormControl>
                 <InputField
                   variant="auth"
@@ -157,6 +178,7 @@ export default function SignUp() {
                   type="text"
                   value={city}
                   onChange={handleCityChange}
+                  error={errors.city}
                 />
                 <InputField
                   variant="auth"
@@ -164,9 +186,10 @@ export default function SignUp() {
                   label="Phone Number*"
                   placeholder="Phone Number"
                   id="phoneNumber"
-                  type="number"
+                  type="text"
                   value={phone}
                   onChange={handlePhoneChange}
+                  error={errors.phone}
                 />
                 <InputField
                   variant="auth"
@@ -177,8 +200,18 @@ export default function SignUp() {
                   type="text"
                   value={country}
                   onChange={handleCountryChange}
+                  error={errors.country}
                 />
               </div>
+              {Object.keys(errors).length > 0 && (
+                <div className="mt-4">
+                  {Object.values(errors).map((errorMsg, index) => (
+                    <p key={index} className="text-sm text-red-500">
+                      {errorMsg}
+                    </p>
+                  ))}
+                </div>
+              )}
               {error && <p className="text-red-500">{error}</p>}
               <button
                 type="submit"
