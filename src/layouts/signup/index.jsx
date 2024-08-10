@@ -3,6 +3,7 @@ import authImg from "assets/img/auth/updated.png";
 import { Link, Routes, Route, Navigate } from "react-router-dom";
 import routes from "routes.js";
 import FixedPlugin from "components/fixedPlugin/FixedPlugin";
+import SignIn from "views/investorAuth/InvestorSignIn";
 import SignUp from "views/signup/signup";
 
 export default function Auth() {

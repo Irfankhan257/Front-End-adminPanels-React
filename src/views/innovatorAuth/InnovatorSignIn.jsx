@@ -49,7 +49,7 @@ export default function InnovatorSignIn() {
           sx={{
             alignItems: "left",
             justifyContent: "center",
-            height: "100vh",
+            height: "30vh",
             width: "40%",
             mt: 50,
           }}

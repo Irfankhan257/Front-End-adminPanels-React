@@ -53,7 +53,7 @@ export default function SignUp() {
     try {
       const signUpData = await LogInController.SignUp(payload);
       if (signUpData) {
-        navigate("/investor");
+        navigate("/login");
         setIsLoading(false);
       } else {
         dispatch(setError("credentials Failed. Please try again."));
@@ -80,8 +80,8 @@ export default function SignUp() {
           <LinearProgress />
         </Box>
       ) : (
-        <div className="mt-16 mb-16 flex h-full w-full items-center justify-center px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start">
-          <div className="mt-[10vh] w-full max-w-full flex-col items-center md:pl-4 lg:pl-0 xl:max-w-[420px]">
+        <div className="mt-5 mb-16 flex h-full w-full items-center justify-center px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start">
+          <div className="mt-[-4hv] w-full max-w-full flex-col items-center md:pl-4 lg:pl-0 xl:max-w-[420px]">
             <h4 className="mb-2.5 text-4xl font-bold text-navy-700 dark:text-white">
               Sign Up
             </h4>
@@ -121,7 +121,12 @@ export default function SignUp() {
                   onChange={handlePasswordChange}
                 />
                 <FormControl variant="outlined" className="mb-3 w-[48%]">
-                  <InputLabel id="role-label">Role*</InputLabel>
+                  <InputLabel
+                    id="role-label"
+                    className="text-navy-700 dark:text-white"
+                  >
+                    Role*
+                  </InputLabel>
                   <Select
                     labelId="role-label"
                     id="role"
@@ -129,8 +134,18 @@ export default function SignUp() {
                     onChange={handleRoleChange}
                     label="Role*"
                   >
-                    <MenuItem value="innovator">Innovator</MenuItem>
-                    <MenuItem value="investor">Investor</MenuItem>
+                    <MenuItem
+                      value="innovator"
+                      className="text-navy-700 dark:text-white"
+                    >
+                      Innovator
+                    </MenuItem>
+                    <MenuItem
+                      value="investor"
+                      className="text-navy-700 dark:text-white"
+                    >
+                      Investor
+                    </MenuItem>
                   </Select>
                 </FormControl>
                 <InputField

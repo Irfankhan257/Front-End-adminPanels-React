@@ -16,6 +16,7 @@ import InvesTechWebsite from "views/homepage/Index";
 import InvestorAuthLayout from "layouts/investorauth";
 import SignUpLayout from "layouts/signup";
 import RoleProtectedRoute from "Hooks/ProtectedRoute";
+import InnovatorInvestorScreen from "views/login/login";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
           }
         />
         <Route path="signup/*" element={<SignUpLayout />} />
+        <Route path="login/*" element={<InnovatorInvestorScreen />} />
         <Route path="/" element={<Navigate to="/homepage" replace />} />
         <Route path="/homepage/*" element={<InvesTechWebsite />} />
         <Route path="/investorsignin/*" element={<InvestorAuthLayout />} />
