@@ -12,7 +12,6 @@ import RTLDefault from "views/rtl/default";
 import InnovatorSignIn from "views/innovatorAuth/InnovatorSignIn";
 import InvestorSignIn from "views/investorAuth/InvestorSignIn";
 
-
 // Icon Imports
 import {
   MdHome,
@@ -20,8 +19,11 @@ import {
   MdBarChart,
   MdPerson,
   MdLock,
+  MdStarRate,
 } from "react-icons/md";
+import { FcIdea } from "react-icons/fc";
 import PitchingIdeas from "views/innovator/pitching";
+import InvestorFeed from "views/innovator/investorrating/InvestorRating";
 
 const routesinnovator = [
   {
@@ -42,8 +44,15 @@ const routesinnovator = [
     name: "Pitch an Idea",
     layout: "/innovator",
     path: "pitchingidea",
-    icon: <MdHome className="h-6 w-6" />,
+    icon: <FcIdea className="h-6 w-6" />,
     component: <PitchingIdeas />,
+  },
+  {
+    name: "Rate An Investor",
+    layout: "/innovator",
+    path: "rateinvestor",
+    icon: <MdStarRate className="h-6 w-6" />,
+    component: <InvestorFeed />,
   },
 ];
 export default routesinnovator;

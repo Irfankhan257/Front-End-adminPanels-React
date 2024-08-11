@@ -75,4 +75,12 @@ export const callingapiservice = {
     const apiName = "ideas/searchideas";
     return apiService(apiName, payload, "GET");
   },
+  Investors: async (payload) => {
+    const apiName = "auth/investors";
+    return apiService(apiName, payload, "GET");
+  },
+  InvestorSearch: async (payload) => {
+    const apiName = "auth/investorssearch";
+    return apiService(apiName, payload, "GET");
+  },
 };

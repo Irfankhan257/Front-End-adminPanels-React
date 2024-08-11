@@ -45,4 +45,21 @@ export const FeedController = {
       console.error("Error fetching ideas:", error);
     }
   },
+
+  Investors: async (payload) => {
+    try {
+      const data = await callingapiservice.Investors(payload);
+      return data.data.investors;
+    } catch (error) {
+      console.error("Error fetching ideas:", error);
+    }
+  },
+  InvestorSearch: async (payload) => {
+    try {
+      const data = await callingapiservice.InvestorSearch(payload);
+      return data.data.investors;
+    } catch (error) {
+      console.error("Error fetching ideas:", error);
+    }
+  },
 };

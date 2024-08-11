@@ -11,8 +11,15 @@ const Banner1 = () => {
           Discover the most Innovative Ideas in the world
         </h4>
         <p className="mb-[40px] max-w-full text-base font-medium text-[#E3DAFF] md:w-[64%] lg:w-[40%] xl:w-[72%] 2xl:w-[60%] 3xl:w-[45%]">
-          Enter in this creative and innovative world. Discover now the latest ideas, Get in touch with the Innovator and Start your creative business journey from here!
+          Enter in this creative and innovative world. Discover now the latest ideas or start
+          creating your own!
         </p>
+
+        <div className="mt-[36px] flex items-center justify-between gap-4 sm:justify-start 2xl:gap-10">
+          <button className="text-black linear rounded-xl bg-white px-4 py-2 text-center text-base font-medium transition duration-200 hover:!bg-white/80 active:!bg-white/70">
+            Discover Here!
+          </button>
+        </div>
       </div>
     </div>
   );
