@@ -138,11 +138,17 @@ const InvesTechWebsite = () => {
                       For Investors
                     </h2>
                     <p className="font-medium leading-relaxed text-black-950">
-                      Discover a wide range of investment opportunities. Explore
-                      startups and growing companies in various industries and
-                      stages of development. Connect with passionate founders,
-                      do your research, and make smart investment decisions.
+                      Empowering the future by seamlessly connecting visionary
+                      entrepreneurs with forward-thinking investors, turning
+                      groundbreaking ideas into successful ventures.
                     </p>
+                    <ul class="mt-4 max-w-md list-inside list-disc space-y-1 text-black-950">
+                      <li>Proven Track Record</li>
+                      <li>Expert Curation</li>
+                      <li>Comprehensive Support</li>
+                      <li>User-Friendly Platform</li>
+                      <li>Community-Driven</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -155,15 +161,20 @@ const InvesTechWebsite = () => {
                   />
                   <div className="relative z-10 w-full text-center">
                     <h2 className="title-font mb-2 text-xl font-medium text-black-950">
-                      For Innovators
+                      What We Offer?
                     </h2>
-                    <p className="font-medium leading-relaxed text-black-950">
-                      Showcase your innovative ideas to a global network of
-                      investors eager to support you. Get access to funding,
-                      guidance, and tools to grow your business. Connect with
-                      potential partners, validate your business model, and take
-                      your venture to new heights.
+                    <p className="mb-2 font-medium leading-relaxed text-black-950">
+                      At our core, we connect passionate entrepreneurs with the
+                      right investors, fostering growth and innovation. Our
+                      platform goes beyond a marketplace; it’s a vibrant
+                      community dedicated to turning ideas into impactful
+                      realities.
                     </p>
+                    <ul class="mt-5 mt-4 max-w-md list-inside list-disc space-y-1 text-black-950">
+                      <li>Curated Investment Opportunities </li>
+                      <li>Entrepreneur Support</li>
+                      <li>Seamless Connection</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -182,16 +193,15 @@ const InvesTechWebsite = () => {
                   src={innovator}
                 />
               </div>
-              <h2 className="title-font mt-6 mb-3 text-3xl font-medium text-gray-400">
+              <h2 className="title-font mt-6 mb-3 text-3xl font-medium text-gray-300">
                 Innovators
               </h2>
-              <p className="text-base leading-relaxed text-gray-400 ">
-                Williamsburg occupy sustainable snackwave gochujang. Pinterest
-                cornhole brunch, slow-carb neutra irony.
+              <p className="text-base leading-relaxed text-gray-300 ">
+                Turn your vision into reality with InvesTech. Gain access to the
+                resources, mentorship, and funding needed to accelerate your
+                growth. Connect with forward-thinking investors, showcase your
+                ideas, and take your innovation to the next level.
               </p>
-              <button className="mx-auto mt-6 flex rounded border-0 bg-indigo-500 py-2 px-5 text-white hover:bg-indigo-600 focus:outline-none">
-                Button
-              </button>
             </div>
             <div className="mb-10 px-4 sm:w-1/2">
               <div className="h-64 overflow-hidden rounded-lg">
@@ -201,16 +211,16 @@ const InvesTechWebsite = () => {
                   src={investor}
                 />
               </div>
-              <h2 className="title-font mt-6 mb-3 text-3xl font-medium text-gray-400">
+              <h2 className="title-font mt-6 mb-3 text-3xl font-medium text-gray-300">
                 Investor
               </h2>
-              <p className="text-base leading-relaxed text-gray-400 ">
-                Williamsburg occupy sustainable snackwave gochujang. Pinterest
-                cornhole brunch, slow-carb neutra irony.
+              <p className="text-base leading-relaxed text-gray-300 ">
+                Unlock a diverse array of investment opportunities across
+                industries and growth stages. Explore innovative startups and
+                emerging companies, connect with driven founders, conduct
+                thorough research, and make informed, strategic
+                investment decisions.
               </p>
-              <button className="mx-auto mt-6 flex rounded border-0 bg-indigo-500 py-2 px-5 text-white hover:bg-indigo-600 focus:outline-none">
-                Button
-              </button>
             </div>
           </div>
         </div>
@@ -273,140 +283,43 @@ const InvesTechWebsite = () => {
               opportunities, connect with others, and be part of something
               bigger.
             </p>
+
+            <div className="mt-14 flex justify-center">
+              <a href="/signup">
+                <button className="inline-flex rounded border-0 bg-indigo-500 py-2 px-6 text-lg text-white hover:bg-indigo-600 focus:outline-none">
+                  SignUp
+                </button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="body-font mx-9  my-9  rounded-3xl bg-gradient-to-l from-slate-900 to-teal-500 text-gray-600 ">
+      <footer className="body-font mx-9 rounded-3xl bg-gradient-to-l from-slate-900 to-teal-500 text-gray-600 ">
         <div className="container mx-auto flex flex-col flex-wrap px-5 py-24 md:flex-row md:flex-nowrap md:items-center lg:items-start">
           <div className="mx-auto mt-10 w-64 flex-shrink-0 text-center md:mx-0 md:mt-0 md:text-left">
             <a className="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="h-10 w-10 rounded-full bg-indigo-500 p-2 text-white"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              </svg>
-              <span className="ml-3 text-xl">Tailblocks</span>
+              <img className="h-14 w-20 object-contain" alt="hero" src={logo} />
+              <span className="ml-3 text-xl text-gray-300">InvesTech</span>
             </a>
             <p className="mt-2 text-sm text-gray-500">
-              Air plant banjo lyft occupy retro adaptogen indego
+              Where Innovation meets Investment
             </p>
           </div>
           <div className="order-first -mb-10 flex flex-grow flex-wrap text-center md:pr-20 md:text-left">
-            <div className="w-full px-4 md:w-1/2 lg:w-1/4">
-              <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
-                CATEGORIES
+            <div className="w-full px-4 md:w-1/2 lg:w-3/4">
+              <h2 className="title-font mb-3 text-5xl font-medium tracking-widest text-gray-300">
+                About Us:
               </h2>
-              <nav className="mb-10 list-none">
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    First Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Second Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Third Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Fourth Link
-                  </a>
-                </li>
-              </nav>
-            </div>
-            <div className="w-full px-4 md:w-1/2 lg:w-1/4">
-              <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
-                CATEGORIES
-              </h2>
-              <nav className="mb-10 list-none">
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    First Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Second Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Third Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Fourth Link
-                  </a>
-                </li>
-              </nav>
-            </div>
-            <div className="w-full px-4 md:w-1/2 lg:w-1/4">
-              <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
-                CATEGORIES
-              </h2>
-              <nav className="mb-10 list-none">
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    First Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Second Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Third Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Fourth Link
-                  </a>
-                </li>
-              </nav>
-            </div>
-            <div className="w-full px-4 md:w-1/2 lg:w-1/4">
-              <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
-                CATEGORIES
-              </h2>
-              <nav className="mb-10 list-none">
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    First Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Second Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Third Link
-                  </a>
-                </li>
-                <li>
-                  <a className="text-gray-600 hover:text-gray-800">
-                    Fourth Link
-                  </a>
-                </li>
-              </nav>
+              <br></br>
+              <p className="text-gray-300">
+                InvestTech is a platform that connects investors with curated
+                startup opportunities across various industries. We empower
+                investors with the tools to make informed decisions and engage
+                actively, while providing startups with the resources and
+                support needed for growth. Our mission is to foster a vibrant
+                ecosystem where innovation and collaboration thrive.
+              </p>
             </div>
           </div>
         </div>
@@ -414,14 +327,14 @@ const InvesTechWebsite = () => {
       <div className="bg-stale-800">
         <div className="container mx-auto flex flex-col flex-wrap py-4 px-5 sm:flex-row">
           <p className="text-center text-sm text-gray-500 sm:text-left">
-            © 2020 Tailblocks —
+            2024 InvesTech —
             <a
               href="https://twitter.com/knyttneve"
               rel="noopener noreferrer"
               class="ml-1 text-gray-600"
               target="_blank"
             >
-              @knyttneve
+              @SSUET
             </a>
           </p>
           <span className="mt-2 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">

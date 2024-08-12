@@ -138,10 +138,10 @@ export default function SignUp() {
                   onChange={handlePasswordChange}
                   error={errors.password}
                 />
-                <FormControl variant="outlined" className="mb-3 w-[48%]">
+                <FormControl variant="outlined" sx={{ mt: 3, width: "48%" }}>
                   <InputLabel
                     id="role-label"
-                    className="text-navy-700 dark:text-white"
+                    sx={{ color: "text.navy-700", dark: { color: "white" } }}
                   >
                     Role*
                   </InputLabel>
@@ -151,16 +151,17 @@ export default function SignUp() {
                     value={role}
                     onChange={handleRoleChange}
                     label="Role*"
+                    sx={{ color: "text.navy-700", dark: { color: "white" } }}
                   >
                     <MenuItem
                       value="innovator"
-                      className="text-navy-700 dark:text-white"
+                      sx={{ color: "text.navy-700", dark: { color: "white" } }}
                     >
                       Innovator
                     </MenuItem>
                     <MenuItem
                       value="investor"
-                      className="text-navy-700 dark:text-white"
+                      sx={{ color: "text.navy-700", dark: { color: "white" } }}
                     >
                       Investor
                     </MenuItem>

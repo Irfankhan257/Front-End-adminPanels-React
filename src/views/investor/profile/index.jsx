@@ -59,8 +59,8 @@ const ProfileOverview = () => {
             </div>
           </div>
           <div className="mt-3 flex h-fit w-full flex-col gap-5 lg:grid lg:grid-cols-12">
-            <div className="col-span-7 lg:!mb-0">
-              {/* <Project userIdeas={userIdeas} /> */}
+            <div className="col-span-6 lg:!mb-0">
+              <Project />
             </div>
             <div className="col-span-5 lg:col-span-6 lg:mb-0 3xl:col-span-5">
               <General userInfo={userInfo} />

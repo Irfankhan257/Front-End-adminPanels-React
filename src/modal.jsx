@@ -39,7 +39,7 @@ const UserInfoModal = ({
     role: innovator.role,
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [ratingDisabled, setRatingDisabled] = useState(false); 
+  const [ratingDisabled, setRatingDisabled] = useState(false);
 
   const handleRatingChange = (event, newValue) => {
     setPostRating((prevState) => ({
@@ -69,7 +69,51 @@ const UserInfoModal = ({
       to: innovator.email,
       sender: user.email,
       subject: "You've got a message!",
-      text: "Hello, an Investor/Innovator is trying to reach you. Please use the email provided below to start communicating and build your startup!",
+      text: `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Interest Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Dear ${innovator.name},</p>
+        <p>We are pleased to inform you that an investor has expressed interest in your project,  on the Investech platform. The investor was impressed with your concept and would like to explore the possibility of working together.</p>
+        <p>To protect your privacy and maintain confidentiality, we recoomend using this email chain to continue further communication.</p>
+        <p>Please respond at your earliest convenience so we can proceed accordingly and do not forget to rate the investor from your panel by simple going to "Rate An Investor" and searching for thier email</p>
+        <p>Thank you for using Investech to showcase your innovative ideas, and we look forward to supporting you in this exciting opportunity.</p>
+        <p>The Person trying to reach you is listed at the end of this email with the title "Sender Email".</p>
+
+        <p>Best regards,<br>The Investech Team</p>
+    </div>
+</body>
+</html>
+`,
     };
 
     try {

@@ -1,95 +1,108 @@
 import React, { useState } from "react";
 import { MdModeEditOutline } from "react-icons/md";
-import image1 from "assets/img/profile/image1.png";
-import image2 from "assets/img/profile/image2.png";
-import image3 from "assets/img/profile/image3.png";
+import image1 from "assets/img/nfts/Nft1.png";
+import image2 from "assets/img/nfts/Nft2.png";
+import image3 from "assets/img/nfts/Nft3.png";
+import image4 from "assets/img/nfts/Nft4.png";
+import image5 from "assets/img/nfts/Nft5.png";
 import Card from "components/card";
 
-const Project = ({ userIdeas }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3; // Change this value to display more or fewer items per page
+const Project = ({}) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    {
+      src: image1,
+      title: "Green Energy and Sustainability",
+      description:
+        "Businesses in green energy and sustainability focus on renewable energy sources, eco-friendly products, and sustainable practices. As global demand for clean energy grows, these businesses offer a promising return on investment. The moderate risk is due to regulatory changes and the need for significant upfront capital.",
+    },
+    {
+      src: image2,
+      title: "Healthcare Services",
+      description:
+        "Healthcare services, including hospitals, clinics, and telemedicine platforms, offer steady and reliable returns due to the constant demand for medical care. The sector is less volatile, making it a safer investment. Profitability is driven by an aging population and the continuous need for healthcare innovations.",
+    },
+    {
+      src: image3,
+      title: "Biotech and Pharmaceuticals",
+      description:
+        "Investing in biotech and pharmaceuticals involves backing companies that are developing new drugs and medical treatments. The sector is characterized by high risk due to the lengthy and expensive R&D process and regulatory hurdles. However, successful drug approvals can result in significant returns, making it a high-reward investment. ",
+    },
+    {
+      src: image4,
+      title: "E-commerce Platforms",
+      description:
+        "E-commerce platforms, particularly those catering to niche markets or emerging economies. These businesses benefit from the growing trend of online shopping. Profitability is typically driven by market expansion and the ability to scale operations effectively.",
+    },
+    {
+      src: image5,
+      title: "Logistics and Transportation",
+      description:
+        "The logistics and transportation sector is crucial for supporting global trade and e-commerce, offering steady returns with moderate risk. Profitability is driven by efficient operations and the ability to scale. The sector benefits from consistent demand.",
+    },
+  ];
 
-  // Calculate the indices for slicing the data
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = userIdeas.slice(indexOfFirstItem, indexOfLastItem);
-
-  // Calculate the total number of pages
-  const totalPages = Math.ceil(userIdeas.length / itemsPerPage);
-
-  // Pagination handlers
-  const handlePreviousPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
   return (
     <Card extra={"w-full p-4 h-full"}>
-      <div className="mb-8 w-full">
-        <h4 className="text-xl font-bold text-navy-700 dark:text-white">
-          All Pitches
-        </h4>
-        <p className="mt-2 text-base text-gray-600">
-          Here you can find more details about your projects
-        </p>
-      </div>
-      {currentItems.map((idea, index) => (
-        <div
-          key={idea.id}
-          className="mt-3 flex w-full items-center justify-between rounded-2xl bg-white p-3 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none"
-        >
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
+      <div className="relative overflow-hidden rounded-xl">
+        <div className="relative h-96 w-full">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+            >
               <img
-                className="h-20 w-20 rounded-lg object-cover"
-                src={
-                  (index + indexOfFirstItem) % 3 === 0
-                    ? image1
-                    : (index + indexOfFirstItem) % 3 === 1
-                    ? image2
-                    : image3
-                }
-                alt=""
+                src={slide.src}
+                alt={`Slide ${index}`}
+                className="h-full w-full object-cover"
               />
+              <div className="bg-black/75 absolute inset-0 flex items-center justify-center">
+                <div className="w-3/4 text-center md:w-2/4">
+                  <h1 className="mb-4 text-xl text-black-950 md:text-4xl lg:text-2xl">
+                    {slide.title}
+                  </h1>
+                  <p className="mb-12 text-white">{slide.description}</p>
+                </div>
+              </div>
             </div>
-            <div className="ml-4">
-              <p className="text-sm text-gray-600">
-                Project #{index + 1 + indexOfFirstItem}
-              </p>
-              <h5 className="mt-1 text-base font-semibold text-navy-700 dark:text-white">
-                Title
-              </h5>
-              <p className="text-base font-medium text-navy-700 dark:text-white">
-                {idea.ideaTitle}
-              </p>
-              <h5 className="mt-2 text-base font-semibold text-navy-700 dark:text-white">
-                Description
-              </h5>
-              <p className="text-sm text-gray-600">{idea.ideaDescription}</p>
-            </div>
-          </div>
-          <div className="mr-4 flex items-center justify-center text-gray-600 dark:text-white">
-            <MdModeEditOutline />
-          </div>
+          ))}
         </div>
-      ))}
-      <div className="mt-4 flex justify-center">
+
+        {/* Navigation Dots */}
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`mx-1 h-3 w-3 rounded-full ${
+                index === currentSlide ? "bg-white" : "bg-gray-300"
+              }`}
+            ></button>
+          ))}
+        </div>
+
+        {/* Navigation Arrows */}
         <button
-          onClick={handlePreviousPage}
-          disabled={currentPage === 1}
-          className="mx-2 rounded bg-gray-200 px-4 py-2 dark:bg-navy-600"
+          onClick={prevSlide}
+          className="absolute left-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-800 bg-opacity-50 p-2 text-white"
         >
-          Previous
+          ❮
         </button>
         <button
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-          className="mx-2 rounded bg-gray-200 px-4 py-2 dark:bg-navy-600"
+          onClick={nextSlide}
+          className="absolute right-0 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-800 bg-opacity-50 p-2 text-white"
         >
-          Next
+          ❯
         </button>
       </div>
     </Card>

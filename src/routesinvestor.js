@@ -1,26 +1,14 @@
 import React from "react";
 
 // Admin Imports
-import MainDashboard from "views/admin/default";
-import NFTMarketplace from "views/admin/marketplace";
+
 import Profile from "views/investor/profile";
-import DataTables from "views/admin/tables";
 import FeedTable from "views/investor/feed";
 import ChatBox from "views/investor/chatbot/Chatbot";
-import RTLDefault from "views/rtl/default";
-
-// Auth Imports
-import InnovatorSignIn from "views/innovatorAuth/InnovatorSignIn";
-import InvestorSignIn from "views/investorAuth/InvestorSignIn";
 
 // Icon Imports
-import {
-  MdHome,
-  MdOutlineShoppingCart,
-  MdBarChart,
-  MdPerson,
-  MdLock,
-} from "react-icons/md";
+import { MdHome, MdPerson } from "react-icons/md";
+import { RiChatSmile3Line } from "react-icons/ri";
 
 const routes = [
   {
@@ -43,7 +31,7 @@ const routes = [
     name: "Chat AI",
     layout: "/investor",
     path: "chatai",
-    icon: <MdPerson className="h-6 w-6" />,
+    icon: <RiChatSmile3Line className="h-6 w-6" />,
     component: <ChatBox />,
   },
 ];
