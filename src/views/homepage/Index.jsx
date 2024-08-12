@@ -113,15 +113,13 @@ const InvesTechWebsite = () => {
                 src={pic1}
               />
               <div className="relative z-10 w-full text-center">
-                <h2 className="title-font mb-2 text-xl font-medium text-black-950">
-                  Why Investech?
+                <h2 className="title-font mb-2 text-xl font-semibold text-black-950">
+                  Our Mission
                 </h2>
-                <p className="font-medium leading-relaxed text-black-950">
-                  At Investech, we simplify the process of finding and funding
-                  innovative ideas. Whether you're an investor looking for the
-                  next big thing or an entrepreneur seeking support, our
-                  platform connects you with the right opportunities and
-                  resources to succeed.
+                <p className="font-semibold leading-relaxed text-black-950">
+                  To streamline the journey from concept to market by providing
+                  a seamless connection between investors and innovators,
+                  fostering a community where big ideas become reality.
                 </p>
               </div>
             </div>
@@ -134,15 +132,15 @@ const InvesTechWebsite = () => {
                     src={pic2}
                   />
                   <div className="relative z-10 w-full text-center">
-                    <h2 className="title-font mb-2 text-xl font-medium text-black-950">
-                      For Investors
+                    <h2 className="title-font mb-2 text-xl font-semibold text-black-950">
+                      Why InvesTech?
                     </h2>
-                    <p className="font-medium leading-relaxed text-black-950">
+                    <p className="font-semibold leading-relaxed text-black-950">
                       Empowering the future by seamlessly connecting visionary
                       entrepreneurs with forward-thinking investors, turning
                       groundbreaking ideas into successful ventures.
                     </p>
-                    <ul class="mt-4 max-w-md list-inside list-disc space-y-1 text-black-950">
+                    <ul class="font-semibold list-disc mt-4 max-w-md list-inside space-y-1 text-black-950">
                       <li>Proven Track Record</li>
                       <li>Expert Curation</li>
                       <li>Comprehensive Support</li>
@@ -160,17 +158,17 @@ const InvesTechWebsite = () => {
                     src={pic3}
                   />
                   <div className="relative z-10 w-full text-center">
-                    <h2 className="title-font mb-2 text-xl font-medium text-black-950">
+                    <h2 className="title-font mb-9 text-xl font-semibold text-black-950">
                       What We Offer?
                     </h2>
-                    <p className="mb-2 font-medium leading-relaxed text-black-950">
+                    <p className="mb-2 font-semibold leading-relaxed text-black-950">
                       At our core, we connect passionate entrepreneurs with the
                       right investors, fostering growth and innovation. Our
                       platform goes beyond a marketplace; it’s a vibrant
                       community dedicated to turning ideas into impactful
                       realities.
                     </p>
-                    <ul class="mt-5 mt-4 max-w-md list-inside list-disc space-y-1 text-black-950">
+                    <ul class="font-semibold space-y-1 mt-5 mt-4 max-w-md list-inside  list-disc text-black-950">
                       <li>Curated Investment Opportunities </li>
                       <li>Entrepreneur Support</li>
                       <li>Seamless Connection</li>
